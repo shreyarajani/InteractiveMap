@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+   <script src="jquery.js"></script>
+  <script src="raphael.js"></script>
+  <script src="jquery.usmap.js"></script>
+        <title>USA Map</title>
+		
+    </head>
+<body>
+	<div id="map" style="width: 100%; height: 100%;"></div>
+<div id="clicked-state"></div>
+
+<script>
+$(document).ready(function() {
+	
+    $('#map').usmap({
+		// The click action
+  click: function(event, data) {
+	  if(data.name == 'CA'){
+    $('#clicked-state')
+      .html('<h3>California</h3><iframe id="stateFrame" src="c1.html" width="100%" frameborder="0" height="800" name="stateFrame"></iframe>'+data.name)
+      .parent().effect('highlight', {color: '#C7F464'}, 2000);
+	  }
+	  
+	  if(data.name == 'TX'){
+    $('#clicked-state')
+      .html(data.name +'<iframe id="stateFrame" src="c2.html" frameborder="0" width="100%" height="800" name="stateFrame"></iframe>'+data.name)
+      .parent().effect('highlight', {color: '#C7F464'}, 2000);
+	  }
+	  
+	  if(data.name == 'FL'){
+    $('#clicked-state')
+      .html(data.name + '<iframe id="stateFrame" src="http://www.usfca.edu/Undergraduate_Admission/" frameborder="0" width="100%" height="800" name="stateFrame"></iframe>')
+      .parent().effect('highlight', {color: '#C7F464'}, 2000);
+	  }
+	  
+	  if(data.name == 'NY'){
+    $('#clicked-state')
+      .html('<iframe id="stateFrame" src="http://www.usfca.edu/Undergraduate_Admission/Counselors/" frameborder="0" width="100%" height="800" name="stateFrame"></iframe>')
+      .parent().effect('highlight', {color: '#C7F464'}, 2000);
+	  }
+  }
+		});
+  });
+  </script>
+</body>
+</html>
